@@ -12,7 +12,7 @@ const Account = () => {
                 strokeWidth="1.5" stroke="currentColor" 
                 aria-hidden="true" data-slot="icon" 
                 className="h-6 w-6 cursor-pointer text-text sm:hidden"
-                onClick={() => setAccount(!account)}>
+                onClick={() => setAccount(a => !a)}>
                     <path 
                         strokeLinecap="round" 
                         strokeLinejoin="round" 
@@ -21,7 +21,7 @@ const Account = () => {
             </svg>
 
             <div className={`flex items-center gap-5 justify-end max-sm:bg-white max-sm:flex-col max-sm:fixed right-0 top-12 
-            max-sm:rounded max-sm:gap-0 max-sm:px-2 ${!account ? "hidden" : "block"}`}>
+            max-sm:rounded max-sm:gap-0 max-sm:px-2 ${account ? "flex" : "hidden"} transition-all`}>
                 <button className='text-white text-sm hover:underline max-sm:text-black max-sm:p-2'>Sign up</button>
 
                 <button className='bg-white text-black px-4 py-1 rounded-full text-sm font-semibold cursor-pointer

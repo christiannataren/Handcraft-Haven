@@ -4,8 +4,8 @@ import React, { useState } from 'react'
 import Logo from '@/app/ui/logo'
 import Search from "@/app/ui/search"
 import NavLink from '@/app/ui/nav-link'
-import Account from '@/app/ui/account'
 import Carts from '@/app/ui/carts'
+import Account from '@/app/ui/account'
 
 const Navbar = () => {
   const [sideBar, setSideBar] = useState(false)

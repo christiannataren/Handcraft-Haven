@@ -8,12 +8,6 @@ importers:
 
   .:
     dependencies:
-<<<<<<< HEAD
-=======
-      lucide:
-        specifier: ^0.577.0
-        version: 0.577.0
->>>>>>> 38e635e (Navbar)
       next:
         specifier: 16.2.0
         version: 16.2.0(@babel/core@7.29.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
