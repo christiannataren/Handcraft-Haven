@@ -21,13 +21,16 @@ const Account = () => {
             </svg>
 
             <div className={`flex items-center gap-5 justify-end max-sm:bg-white max-sm:flex-col max-sm:fixed right-0 top-12 
-            max-sm:rounded max-sm:gap-0 max-sm:px-2 ${account ? "flex" : "hidden"} transition-all`}>
-                <button className='text-white text-sm hover:underline max-sm:text-black max-sm:p-2'>Sign up</button>
+            max-sm:rounded max-sm:gap-0 max-sm:p-1 ${account ? "opacity-100 scale-100" : "max-sm:opacity-0 max-sm:scale-95"} transition-all duration-300`}>
+
+                <button className='text-white text-sm hover:underline max-sm:text-black max-sm:p-2
+                max-sm:active:bg-gray-300 max-sm:rounded-sm max-sm:w-full max-sm:px-6' onClick={() => setAccount(false)}>Sign up</button>
 
                 <button className='bg-white text-black px-4 py-1 rounded-full text-sm font-semibold cursor-pointer
-                hover:bg-gray-200 transition max-sm:p-2'>
+                max-sm:active:bg-gray-300 transition max-sm:p-2 max-sm:rounded-sm max-sm:w-full max-sm:px-6' onClick={() => setAccount(false)}>
                     Login
                 </button>
+
             </div>
         </div>
     )
