@@ -1,9 +1,24 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
 const Account = () => {
     const [account, setAccount] = useState(false)
+    const router = useRouter()
+
+    useEffect(() => {
+        document.body.addEventListener("click", () => {
+            setAccount(false)
+        })
+
+        return () => {
+            document.body.removeEventListener("click", () => {
+                setAccount(false)
+            })
+        }
+    }, [])
+
     return (
         <div className='relative'>     
             <svg 
@@ -24,12 +39,16 @@ const Account = () => {
             max-sm:rounded max-sm:gap-0 max-sm:p-1 ${account ? "opacity-100 scale-100" : "max-sm:opacity-0 max-sm:scale-95"} transition-all duration-300`}>
 
                 <button className='text-white text-sm hover:underline max-sm:text-black max-sm:p-2
-                max-sm:active:bg-gray-300 max-sm:rounded-sm max-sm:w-full max-sm:px-6' onClick={() => setAccount(false)}>Sign up</button>
+                max-sm:active:bg-gray-300 max-sm:rounded-sm max-sm:w-full max-sm:px-6' onClick={() => {
+                    router.push("./sign-up")
+                    setAccount(false);
+                }}>Sign up</button>
 
                 <button className='bg-white text-black px-4 py-1 rounded-full text-sm font-semibold cursor-pointer
-                max-sm:active:bg-gray-300 transition max-sm:p-2 max-sm:rounded-sm max-sm:w-full max-sm:px-6' onClick={() => setAccount(false)}>
-                    Login
-                </button>
+                max-sm:active:bg-gray-300 transition max-sm:p-2 max-sm:rounded-sm max-sm:w-full max-sm:px-6' onClick={() => {
+                    router.push("./login")
+                    setAccount(false);
+                }}>Login</button>
 
             </div>
         </div>

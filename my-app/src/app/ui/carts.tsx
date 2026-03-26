@@ -1,8 +1,13 @@
+"use client"
+
 import React from 'react'
+import { useRouter } from 'next/navigation'
 
 const Carts = () => {
+  const router = useRouter()
+
   return (
-    <div>
+    <div onClick={() => router.push("./cart")}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="h-5 w-5 cursor-pointer text-text"
