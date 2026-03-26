@@ -1,1 +1,0 @@
-import cards from '/data/cards'
