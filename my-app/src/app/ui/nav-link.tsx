@@ -3,7 +3,12 @@
 import React, { useEffect, useRef } from 'react'
 import Link from 'next/link'
 
-const NavLink = ({ sideBar, setSideBar }) => {
+interface NavLinkProps {
+  sideBar: boolean,
+  setSideBar: (value: boolean) => void
+}
+
+const NavLink = ({ sideBar, setSideBar }: NavLinkProps) => {
   const navRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {

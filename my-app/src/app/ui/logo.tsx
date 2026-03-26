@@ -3,7 +3,11 @@
 import React from 'react'
 import Image from "next/image"
 
-const Logo = ({ setSideBar }) => {
+interface LogoProps {
+  setSideBar: (value: boolean) => void
+}
+
+const Logo = ({ setSideBar }: LogoProps) => {
   return (
     <div className='flex items-center gap-2'>
       <button onClick={() => setSideBar(true)}>
