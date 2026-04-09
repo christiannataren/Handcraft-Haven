@@ -1,3 +1,4 @@
+// src/data/cards.ts
 export const products = [
   {
     id: "p1",
@@ -7,7 +8,11 @@ export const products = [
     image: "/images/products/mug.jpg",
     category: "ceramics",
     seller: "Clay & Co.",
-    rating: 3
+    rating: 3,
+    store: "Clay & Co.",
+    n_ratings: 128,
+    url: "/product/p1",
+    store_url: "/store/clay-and-co"
   },
   {
     id: "p2",
@@ -17,7 +22,11 @@ export const products = [
     image: "/images/products/wall-hanging.jpg",
     category: "textiles",
     seller: "Thread & Loom",
-    rating: 4.7
+    rating: 4.7,
+    store: "Thread & Loom",
+    n_ratings: 89,
+    url: "/product/p2",
+    store_url: "/store/thread-and-loom"
   },
   {
     id: "p3",
@@ -27,7 +36,11 @@ export const products = [
     image: "/images/products/hooks.jpg",
     category: "wood",
     seller: "Forge & Grain",
-    rating: 4.1
+    rating: 4.1,
+    store: "Forge & Grain",
+    n_ratings: 56,
+    url: "/product/p3",
+    store_url: "/store/forge-and-grain"
   },
   {
     id: "p4",
@@ -37,7 +50,11 @@ export const products = [
     image: "/images/products/cutting-board.jpg",
     category: "kitchen",
     seller: "Timber Kitchen Co.",
-    rating: 4.1
+    rating: 4.1,
+    store: "Timber Kitchen Co.",
+    n_ratings: 203,
+    url: "/product/p4",
+    store_url: "/store/timber-kitchen-co"
   },
   {
     id: "p5",
@@ -47,7 +64,11 @@ export const products = [
     image: "/images/products/journal.jpg",
     category: "leather",
     seller: "Hide & Bind",
-    rating: 4.6
+    rating: 4.6,
+    store: "Hide & Bind",
+    n_ratings: 167,
+    url: "/product/p5",
+    store_url: "/store/hide-and-bind"
   },
   {
     id: "p6",
@@ -57,7 +78,11 @@ export const products = [
     image: "/images/products/jewelry-box.jpg",
     category: "decor",
     seller: "Craft Haven",
-    rating: 4.4
+    rating: 4.4,
+    store: "Craft Haven",
+    n_ratings: 94,
+    url: "/product/p6",
+    store_url: "/store/craft-haven"
   },
   {
     id: "p7",
@@ -67,7 +92,11 @@ export const products = [
     image: "/images/products/earrings.jpg",
     category: "jewelry",
     seller: "Stone & Wire Studio",
-    rating: 4.2
+    rating: 4.2,
+    store: "Stone & Wire Studio",
+    n_ratings: 312,
+    url: "/product/p7",
+    store_url: "/store/stone-and-wire-studio"
   },
   {
     id: "p8",
@@ -77,7 +106,11 @@ export const products = [
     image: "/images/products/stool.jpg",
     category: "furniture",
     seller: "Root & Branch",
-    rating: 4.9
+    rating: 4.9,
+    store: "Root & Branch",
+    n_ratings: 45,
+    url: "/product/p8",
+    store_url: "/store/root-and-branch"
   },
   {
     id: "p9",
@@ -87,7 +120,11 @@ export const products = [
     image: "/images/products/bowls.jpg",
     category: "ceramics",
     seller: "Clay & Co.",
-    rating: 4.5
+    rating: 4.5,
+    store: "Clay & Co.",
+    n_ratings: 76,
+    url: "/product/p9",
+    store_url: "/store/clay-and-co"
   },
   {
     id: "p10",
@@ -97,6 +134,10 @@ export const products = [
     image: "/images/products/necklace.jpg",
     category: "jewelry",
     seller: "Stone & Wire Studio",
-    rating: 4.0
+    rating: 4.0,
+    store: "Stone & Wire Studio",
+    n_ratings: 234,
+    url: "/product/p10",
+    store_url: "/store/stone-and-wire-studio"
   }
 ];

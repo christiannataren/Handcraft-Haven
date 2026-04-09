@@ -1,10 +1,10 @@
-import { sql } from "@/lib/db";
+import { pool } from "@/lib/db";
 // import { products } from "@/data/products";
 
 export async function GET() {
   // try {
   //   for (const product of products) {
-  //     await sql`
+  //     await pool.query(`
   //       INSERT INTO products (
   //         name,
   //         description,
@@ -21,7 +21,7 @@ export async function GET() {
   //         ${product.category},
   //         ${product.is_popular}
   //       );
-  //     `;
+  //     `);
   //   }
 
   //   return Response.json({ message: "Products seeded" });
