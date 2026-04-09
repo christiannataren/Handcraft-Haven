@@ -1,9 +1,9 @@
-import { sql } from "@/lib/db";
+import { pool } from "@/lib/db";
 import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
-    await sql`
+    await pool.query(`
       CREATE TABLE IF NOT EXISTS products (
         id SERIAL PRIMARY KEY,
         name VARCHAR(150) NOT NULL,
@@ -14,7 +14,7 @@ export async function GET() {
         is_popular BOOLEAN DEFAULT FALSE,
         created_at TIMESTAMP DEFAULT NOW()
       );
-    `;
+    `);
 
     return NextResponse.json({
       message: "Products table created successfully",

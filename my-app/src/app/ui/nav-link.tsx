@@ -33,7 +33,7 @@ const NavLink = ({ sideBar, setSideBar }: NavLinkProps) => {
   ]
 
   return (
-    <div className={`flex items-center gap-5 text-xs sm:text-sm max-lg:fixed top-0 left-0 max-lg:flex-col
+    <div className={`flex items-center gap-5 text-xs sm:text-sm max-lg:fixed top-0 left-0 max-lg:flex-col text-white
     max-lg:h-full max-lg:bg-white max-lg:text-black max-lg:items-start transition-all duration-300 max-lg:gap-2
     ${!sideBar ? "w-0 max-lg:overflow-hidden" : "w-60 max-lg:pl-6 max-lg:pt-5"}`} ref={navRef}>
       <button className='font-bold text-red-700 text-xl lg:hidden' onClick={() => setSideBar(false)}>X</button>

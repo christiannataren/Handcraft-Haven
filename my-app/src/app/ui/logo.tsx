@@ -27,7 +27,7 @@ const Logo = ({ setSideBar }: LogoProps) => {
         </svg>
       </button>
       <Image src="/images/logo.png" alt='handcraft haven logo' width={40} height={40} />
-      <h1 className='text-md font-bold'>Haven</h1>
+      <h1 className='text-md font-bold text-white'>Haven</h1>
     </div>
   )
 }

@@ -1,12 +1,12 @@
-import { sql } from "@/lib/db";
+import { pool } from "@/lib/db";
 
 export async function GET() {
   try {
-    const columns = await sql`
+    const columns = await pool.query(`
       SELECT column_name, data_type
       FROM information_schema.columns
       WHERE table_name = 'products';
-    `;
+    `);
 
     return Response.json(columns.rows);
   } catch (error) {

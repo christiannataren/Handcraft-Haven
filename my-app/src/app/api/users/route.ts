@@ -1,8 +1,8 @@
-import { sql } from "@/lib/db";
+import { pool } from "@/lib/db";
 
 export async function GET() {
   try {
-    const result = await sql`
+    const result = await pool.query(`
       SELECT 
         id,
         first_name,
@@ -13,7 +13,7 @@ export async function GET() {
         created_at
       FROM users
       ORDER BY id ASC;
-    `;
+    `);
 
     return Response.json(result.rows);
   } catch (error) {
