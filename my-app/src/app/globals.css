@@ -24,3 +24,10 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+@layer components {
+  .hover-animation {
+    @apply hover:scale-103 transition-all duration-500
+  }
+}

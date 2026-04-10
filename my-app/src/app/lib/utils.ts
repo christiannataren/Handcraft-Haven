@@ -35,3 +35,21 @@ export const generatePagination = (currentPage: number, totalPages: number) => {
 export function capitalize(word: string) {
     return word[0].toUpperCase() + word.slice(1)
 }
+
+export function formatFloat(n: number) {
+    return Math.round(n * 100) / 100;
+}
+
+export function numberToHearts(number: number) {
+    let stars = "";
+    for (let i = 0; i < number; i++) {
+        stars += "❤️"
+    }
+    if (number < 5) {
+        let lefting = 5 - number;
+        for (let i = 0; i < lefting; i++) {
+            stars += "🩶"
+        }
+    }
+    return stars;
+}
