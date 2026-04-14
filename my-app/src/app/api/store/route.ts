@@ -10,15 +10,13 @@ export async function POST(req: Request) {
     const cookieStore = await cookies();
     const owner_id = cookieStore.get("user_id")?.value;
 
-    // ❌ Step 1: check cookie exists
     if (!owner_id) {
       return NextResponse.json(
         { error: "Not authenticated. Please login." },
         { status: 401 }
       );
     }
-
-    // 🔥 Step 2: VERIFY USER EXISTS IN DB (IMPORTANT FIX)
+    
     const userCheck = await pool.query(
       `SELECT id FROM users WHERE id = $1`,
       [owner_id]
