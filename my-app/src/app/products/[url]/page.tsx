@@ -1,8 +1,8 @@
 
-import { getLastReviewsByProduct, getProductByUrl } from "@/app/lib/data";
+import { getLastReviewsByProduct, getProductByUrl, getUserByID, isProductReviewedByUser } from "@/app/lib/data";
 import { notFound } from "next/navigation";
 import ProductView from "@/app/ui/products/product-view";
-import { Product, Review } from "@/app/lib/definitions";
+import { Product, Review, User } from "@/app/lib/definitions";
 
 import { Metadata } from "next";
 type Props = {
@@ -26,17 +26,30 @@ export default async function Page(props: { params: Promise<{ url: string }> }) 
     const params = await props.params;
     const url = params.url;
     let product: Product | undefined;
+    let user: User | undefined;
     let reviews: Array<Review> | undefined;
-    product = await getProductByUrl(url);
+    let user_id = 3;
+    let isReviewed: boolean;
+    [product, user] = await Promise.all([
+        getProductByUrl(url),
+        getUserByID(user_id),
+
+
+    ]);
+
+    const name = `${user.first_name} ${user.last_name}`;
 
 
 
     if (!product) {
         notFound();
     }
+    isReviewed = await isProductReviewedByUser(user_id, Number(product.id));
+    console.log("Reviewed: " + isReviewed)
+    const url_product = '/products/' + url;
     reviews = await getLastReviewsByProduct(product)
     return <>
-        <ProductView product={product} reviews={reviews} />
+        <ProductView product={product} reviews={reviews} name={name} url={url_product} isReviewed={isReviewed} />
     </>
 
 }

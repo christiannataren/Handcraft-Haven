@@ -5,13 +5,16 @@ import Rating from "./rating"
 import StoreName from "./store-name"
 import { ProductReviews } from "../reviews"
 import { Review } from "../../lib/definitions"
-export default function ProductView({ product, reviews }: { product: Product, reviews: Array<Review> }) {
+import FormReview from "./form-review"
+import { Suspense } from "react"
+export default function ProductView({ product, reviews, name, url, isReviewed }: { product: Product, reviews: Array<Review>, name: string, url: string, isReviewed: boolean }) {
 
     return <>
         <div id="product" className="grid min-[440px]:grid-cols-2 grid-cols-1 w-[100%] p-2">
+
             <div className="">
                 <div className="text-sm mb-1 ml-2 text-blue-800 font-bold">
-                    <a  href={"/"}>Home › </a>
+                    <a href={"/"}>Home › </a>
                     <a className="mx-1" href={"/products/"}>Products › </a>
                     <a href={"/products/category/" + product.category}>{product.category[0].toUpperCase() + product.category.slice(1)}</a>
 
@@ -34,7 +37,7 @@ export default function ProductView({ product, reviews }: { product: Product, re
                 <Rating product={product} />
                 <BuyButton id={product.id} />
                 <ProductReviews reviews={reviews} />
-
+                {!isReviewed && <FormReview name={name} product={product} url={url} />}
             </div>
         </div>
     </>
