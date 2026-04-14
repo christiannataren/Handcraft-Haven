@@ -32,14 +32,15 @@ export async function POST(req: Request) {
       price,
       image,
       category_id,
+      store_id,
       is_popular,
       seo_url,
     } = body;
 
     const query = `
       INSERT INTO products
-      (name, description, price, image, category_id, is_popular, seo_url)
-      VALUES ($1, $2, $3, $4, $5, $6, $7)
+      (name, description, price, image, category_id, store_id, is_popular, seo_url)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
       RETURNING *;
     `;
 
@@ -49,6 +50,7 @@ export async function POST(req: Request) {
       price,
       image,
       category_id,
+      store_id,
       is_popular,
       seo_url,
     ];
