@@ -5,9 +5,9 @@ import { Product } from "@/app/lib/definitions";
 export function ReviewTableSellerPage({ reviews }: { reviews: Array<Review> }) {
     return (
         <div className="grid grid-cols-2 px-4 hidden md:grid gap-x-2">
-            <h3 className="col-span-2 text-center mt-4 mb-2 font-bold text-xl">Last Reviews</h3>
+            <h3 className="col-span-2 text-center mt-4 mb-2 font-bold text-2xl">Last Reviews</h3>
 
-            {reviews.map((review) => <ReviewView review={review} key={review.id} />)}
+            {reviews.length > 0 ? reviews.map((review) => <ReviewView review={review} key={review.id} />) : <p className="text-center col-span-2 font-bold">Not reviews yet</p>}
 
         </div>
     )

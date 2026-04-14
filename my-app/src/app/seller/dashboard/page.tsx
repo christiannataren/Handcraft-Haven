@@ -8,7 +8,7 @@ import { formatFloat } from "@/app/lib/utils";
 export default async function SellerDashboardPage() {
   const [stores, products] = await Promise.all([
     getStores(1),
-    getProducts(1),
+    getProducts(2),
   ]);
 
   const featuredStore = stores[0];
@@ -32,24 +32,24 @@ export default async function SellerDashboardPage() {
             {/*3 buttons: Add a new product, if you dont have a store you can create one, and Edit profile*/}
             <div className="flex flex-wrap gap-3">
               <Link
-              //Redirect to products just for now
+                //Redirect to products just for now
                 href="/products"
                 className="rounded-md bg-amber-700 px-4 py-2 font-semibold text-white transition hover:bg-amber-800"
               >
                 Add Product
               </Link>
 
-            {!featuredStore && (
-              <Link
-                href="/seller/store/new"
-                className="rounded-md border border-green-600 px-4 py-2 font-semibold text-green-700 transition hover:bg-green-50"
-              >
-                + Create Store
-              </Link>
-            )}
+              {!featuredStore && (
+                <Link
+                  href="/seller/store/new"
+                  className="rounded-md border border-green-600 px-4 py-2 font-semibold text-green-700 transition hover:bg-green-50"
+                >
+                  + Create Store
+                </Link>
+              )}
 
               <Link
-              //This route is a placeholder for now, waiting on seller profile
+                //This route is a placeholder for now, waiting on seller profile
                 href="/profile"
                 className="rounded-md border border-gray-400 px-4 py-2 font-semibold text-gray-700 transition hover:bg-gray-100"
               >
@@ -58,7 +58,7 @@ export default async function SellerDashboardPage() {
             </div>
           </div>
         </section>
-        
+
         {/*3 cards to show general information about the market, total stores in the plattform, 
         total products in your store and the rating of the store*/}
         <section className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -90,7 +90,7 @@ export default async function SellerDashboardPage() {
             </p>
           </div>
         </section>
-        
+
         {/*link to edit your store, the imagen: The name, the image, and the bio */}
         <section className="mb-10">
           <div className="mb-4 flex items-center justify-between">
@@ -102,7 +102,7 @@ export default async function SellerDashboardPage() {
               Edit Store
             </Link>
           </div>
-        {/*Ternary operator to display something else when you dont have a store yet 
+          {/*Ternary operator to display something else when you dont have a store yet 
         or if you have actually a store*/}
           {featuredStore ? (
             <div className="max-w-md">
@@ -117,7 +117,7 @@ export default async function SellerDashboardPage() {
             </div>
           )}
         </section>
-        
+
         <section>
           <div className="mb-4 flex items-center justify-between">
             <h2 className="text-2xl font-bold">Your Products</h2>

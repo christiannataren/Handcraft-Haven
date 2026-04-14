@@ -18,7 +18,7 @@ const BASE_PRODUCT_SQL = sql`SELECT p.*, c.name AS category, s.name AS store, p.
 const STORE_BASE_QUERY = sql`SELECT s.*, AVG(r.rating) as avg_rating FROM ratings as r
 JOIN products as p
 ON r.product_id = p.id
-JOIN stores as s
+RIGHT JOIN stores as s
 ON s.id = p.store_id
 `;
 const REVIEW_BASE_QUERY = sql`SELECT CONCAT(u.first_name,' ', u.last_name) AS user_name, p.store_id, r.* FROM ratings AS r
