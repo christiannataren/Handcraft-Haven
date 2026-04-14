@@ -2,7 +2,7 @@
 import { promises as fs } from 'fs';
 import { products } from '@/data/cards';
 import postgres from 'postgres';
-import { Product, Store, Review, Category } from './definitions';
+import { Product, Store, Review, Category, User } from './definitions';
 const sql = postgres(process.env.DATABASE_URL!, { ssl: 'require' });
 import { siteConfig } from '../constants/site';
 import { off } from 'process';
@@ -106,6 +106,19 @@ export async function getProductsByCategory(category: string, currentPage: numbe
 }
 
 
+export async function getUserByID(id: number) {
+    // await new Promise((resolve) => setTimeout(resolve, 10000));
+    try {
+        const data = await sql<User[]>`SELECT id,first_name,last_name,email, role  FROM users
+         WHERE id = ${id}
+        `;
+        const user = data[0];
+        return user;
+    } catch (err) {
+        console.error('Database Error:', err);
+        throw new Error(`Failed to fetch c. ${id} USER`);
+    }
+}
 export async function getProduct(id: number) {
     try {
         const data = await sql<Product[]>`${BASE_PRODUCT_SQL}
@@ -177,6 +190,8 @@ export async function getProducts(currentPage: number) {
         throw new Error(`Failed to fetch all products`);
     }
 }
+
+
 export async function getProductsByStore(currentPage: number, store: Store) {
 
     // await new Promise((resolve) => setTimeout(resolve, 3000));
@@ -273,4 +288,35 @@ export async function getCategories() {
         throw new Error(`Failed to fetch Categories`);
     }
 
+}
+
+
+
+export async function insertReview(rating: number, product_id: number, user_id: number, message: string,) {
+
+    try {
+        const review = await sql`INSERT INTO ratings (rating,product_id,user_id,message)
+        VALUES (${rating},${product_id},${user_id},${message})
+        `;
+        return review;
+    } catch (err) {
+        console.error('Database Error:', err);
+        throw new Error(`Failed to Insert REVIEW`);
+    }
+}
+
+export async function isProductReviewedByUser(user_id: number, product_id: number) {
+    try {
+        const categories = await sql`SELECT COUNT(*) AS n FROM ratings
+        WHERE user_id = ${user_id} AND product_id = ${product_id}
+        `;
+        if (categories[0].n == 0) {
+            return false;
+        } else {
+            return true;
+        }
+    } catch (err) {
+        console.error('Database Error:', err);
+        throw new Error(`Failed to Insert REVIEW`);
+    }
 }

@@ -52,7 +52,6 @@ const Login = () => {
         }
 
         alert("Login Successful") // Replace with toast later
-
         // Redirect based on role or to home page
         if (result.user?.role === 'seller') {
           window.location.href = '/seller/dashboard' //The page needs to reload in order to see the new dasboard/logout

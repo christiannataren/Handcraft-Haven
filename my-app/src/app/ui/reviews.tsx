@@ -38,7 +38,7 @@ export function ProductReviews({ reviews }: { reviews: Array<Review> }) {
 
     return (
         <div className="my-2">
-            <h2 className="font-bold">Reviews for this product</h2>
+            <h2 className="font-bold">{reviews.length > 0 ? "Reviews for this product" : <p>No reviews yet.</p>}</h2>
             {reviews.map(review => <ReviewView review={review} key={review.id} />)}
 
 
@@ -46,3 +46,5 @@ export function ProductReviews({ reviews }: { reviews: Array<Review> }) {
     )
 
 }
+
+
