@@ -37,9 +37,6 @@ export default async function Page(props: { params: Promise<{ url: string }> }) 
         [product, user] = await Promise.all([
             getProductByUrl(url),
             getUserByID(user_id),
-
-
-
         ]);
         name = `${user.first_name} ${user.last_name}`;
     } else {
@@ -58,7 +55,6 @@ export default async function Page(props: { params: Promise<{ url: string }> }) 
         notFound();
     }
     isReviewed = await isProductReviewedByUser(user_id, Number(product.id));
-    console.log("Reviewed: " + isReviewed)
     const url_product = '/products/' + url;
     reviews = await getLastReviewsByProduct(product)
     return <>
