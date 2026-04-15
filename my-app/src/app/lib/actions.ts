@@ -30,8 +30,7 @@ export async function sendReview(
     formData: FormData
 ): Promise<ReviewState> {
     let user_id: number | undefined;
-    user_id = await Number(getSessionLocal()) | 0;
-    console.log("USER:" + user_id)
+    user_id = await getSessionLocal();
     if (user_id === 0) {
         return {
             success: false,
